@@ -1,0 +1,11 @@
+.menuItem{
+	@apply text-lg font-semibold cursor-pointer border-b-2 border-b-transparent border-solid transition-all hover:border-b-black;
+}
+
+.menuItem{
+
+	&.active{
+		@apply border-b-black;
+	}
+
+}

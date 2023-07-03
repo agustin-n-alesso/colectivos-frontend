@@ -1,0 +1,7 @@
+.input{
+	@apply rounded-md p-4 text-lg font-thin border border-gray-300 outline-none
+}
+
+.label{
+	@apply flex flex-col gap-1 font-semibold text-sm
+}

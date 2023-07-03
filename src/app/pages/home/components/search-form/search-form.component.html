@@ -1,0 +1,48 @@
+<form class="flex flex-col justify-between gap-4" #f="ngForm" (ngSubmit)="submitForm(f)">
+	<div class="flex flex-col gap-4">
+		<label class="label">
+			Desde:
+			<select #selectOrigen (change)="emitirOrigen(selectOrigen)" class="input" id="from-list">
+				<option value="">Seleccione una ciudad</option>
+				<option
+					*ngFor="let localidad of localidades$ | async"
+					[value]="localidad._id"
+				>
+					{{localidad.nombre}}
+				</option>
+			</select>
+		</label>
+		<label class="label">
+			Hasta:
+			<select #selectDestino (change)="emitirDestino(selectDestino)" class="input" id="from-list">
+				<option value="">Seleccione una ciudad</option>
+				<option
+					*ngFor="let localidad of localidades$ | async"
+					[value]="localidad._id"
+				>
+					{{localidad.nombre}}
+				</option>
+			</select>
+		</label>
+		<div class="flex flex-row justify-between">
+			<label class="label">
+				Cant. Pasajeros:
+				<input class="input" type="number" placeholder="1">
+			</label>
+			<label class="label">
+				Desde:
+				<input class="input" name="desde" [(ngModel)]="formData.desde" type="date" [min]="hoyDesde | date:'yyyy-MM-dd'">
+			</label>
+			<label class="label">
+				Desde:
+				<input class="input" name="hasta" [(ngModel)]="formData.hasta" type="date" [min]="formData.desde ? formData.desde : hoyHasta | date:'yyyy-MM-dd'">
+			</label>
+		</div>
+	</div>
+	<hr>
+	<div class="h-auto flex flex-col gap-4">
+		<button class="bg-yellow-500 text-black py-5 px-8 rounded-md shadow-sm font-bold text-xl" type="submit">Buscar</button>
+		<hr>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet inventore, corporis autem omnis vitae eaque culpa recusandae veniam ipsam eum? Maxime molestias numquam magni, debitis illo eveniet sed quas sit?</p>
+	</div>
+</form>
