@@ -11,13 +11,13 @@ import { MapComponentComponent } from './components/map-component/map-component.
 	declarations:[
 		HomeComponent,
   	SearchFormComponent,
-   MapComponentComponent
+   	MapComponentComponent
 	],
 	imports: [
 		CommonModule,
 		HomeRoutingModule,
 		FormsModule,
-		HttpClientModule
+		HttpClientModule,
 	],
 	exports: []
 })

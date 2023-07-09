@@ -11,10 +11,10 @@ import LocalidadesService from 'src/app/services/localidades.service';
 })
 export class SearchFormComponent implements OnInit {
 
+  private localidades?: any[];
   hoyDesde: Date = new Date();
   hoyHasta: Date = new Date();
   localidades$?: Observable<any>;
-
   formData: any = {
     desde: '',
     hasta: '',
@@ -32,14 +32,40 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.localidades$ = this._localidades.obtenerLocalidades();
+    this.localidades$.subscribe((data) => {
+      this.localidades = data;
+    });
+  }
+
+  formatToArray = (id:string,lat:number,lng:number,nombre:string) => {
+    return {
+      id,
+      lat,
+      lng,
+      nombre
+    };
   }
 
   emitirOrigen(datos:any){
-    this._gs.emitirOrigen(datos.value);
+    this._gs.emitirOrigen(
+      datos.value === '' ? null : this.formatToArray(
+        datos.value,
+        this.localidades?.find(item => item._id === datos.value)?.latitud,
+        this.localidades?.find(item => item._id === datos.value)?.longitud,
+        this.localidades?.find(item => item._id === datos.value)?.nombre
+      )
+    );
   }
 
   emitirDestino(datos:any){
-    this._gs.emitirDestino(datos.value);
+    this._gs.emitirDestino(
+      datos.value === '' ? null : this.formatToArray(
+        datos.value,
+        this.localidades?.find(item => item._id === datos.value)?.latitud,
+        this.localidades?.find(item => item._id === datos.value)?.longitud,
+        this.localidades?.find(item => item._id === datos.value)?.nombre
+      )
+    );
   }
 
   submitForm(f: NgForm){

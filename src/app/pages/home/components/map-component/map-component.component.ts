@@ -8,8 +8,8 @@ import { GlobalProviderService } from 'src/app/services/global-provider.service'
 })
 export class MapComponentComponent implements OnInit {
 
-  origen: string = '';
-  destino: string = '';
+  origen: any = null;
+  destino: any = null;
 
   constructor(private _gs: GlobalProviderService) { }
 
@@ -17,12 +17,20 @@ export class MapComponentComponent implements OnInit {
 
     this._gs.getOrigenEmitter().subscribe( data => {
       this.origen = data;
+      this.buildMap();
     });
 
     this._gs.getDestinoEmitter().subscribe( data => {
       this.destino = data;
+      this.buildMap();
     });
 
+  }
+
+  buildMap(){
+    if(!this.origen || !this.destino) return;
+
+    console.log('build map!')
   }
 
 }
