@@ -4,7 +4,7 @@ import HomeComponent from "./home.component";
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { MapComponentComponent } from './components/map-component/map-component.component';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { MapComponentComponent } from './components/map-component/map-component.
 		HomeRoutingModule,
 		FormsModule,
 		HttpClientModule,
+		HttpClientJsonpModule
 	],
 	exports: []
 })

@@ -7,7 +7,6 @@ import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import ContainerComponent from './components/shared/container/container.component';
 import { CommonModule } from '@angular/common';
-import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule,
-    GoogleMapsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
