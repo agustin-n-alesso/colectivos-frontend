@@ -18,6 +18,7 @@ export class SearchFormComponent implements OnInit {
   formData: any = {
     desde: '',
     hasta: '',
+    idaVuelta: true,
   }
 
   constructor( private _localidades: LocalidadesService, private _gs: GlobalProviderService ) {}

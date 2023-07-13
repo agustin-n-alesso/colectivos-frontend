@@ -24,18 +24,22 @@
 				</option>
 			</select>
 		</label>
-		<div class="flex flex-row justify-between">
+		<div class="grid grid-cols-4 gap-4">
 			<label class="label">
 				Cant. Pasajeros:
 				<input class="input" type="number" placeholder="1">
 			</label>
 			<label class="label">
-				Desde:
+				Ida:
 				<input class="input" name="desde" [(ngModel)]="formData.desde" type="date" [min]="hoyDesde | date:'yyyy-MM-dd'">
 			</label>
 			<label class="label">
-				Desde:
-				<input class="input" name="hasta" [(ngModel)]="formData.hasta" type="date" [min]="formData.desde ? formData.desde : hoyHasta | date:'yyyy-MM-dd'">
+				<span>Vuelta:</span>
+				<input [disabled]="!formData.idaVuelta" class="input" name="hasta" [(ngModel)]="formData.hasta" type="date" [min]="formData.desde ? formData.desde : hoyHasta | date:'yyyy-MM-dd'">
+			</label>
+			<label class="flex items-center justify-center gap-2 bg-slate-300 rounded-md cursor-pointer">
+				<input type="checkbox" name="idaVuelta" [(ngModel)]="formData.idaVuelta">
+				Ida y vuelta
 			</label>
 		</div>
 	</div>
