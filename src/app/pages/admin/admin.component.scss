@@ -1,0 +1,11 @@
+.admin-buttons-container{
+	@apply w-full p-4 border border-gray-200 rounded-md shadow-md shadow-gray-200 flex gap-2;
+
+	a{
+		@apply p-4 bg-yellow-200 text-gray-800 font-semibold uppercase rounded-sm;
+
+		&.active{
+			@apply bg-yellow-500;
+		}
+	}
+}

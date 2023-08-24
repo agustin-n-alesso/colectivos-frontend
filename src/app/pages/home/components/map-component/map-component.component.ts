@@ -17,6 +17,8 @@ export class MapComponentComponent implements OnInit {
   origen: any = null;
   destino: any = null;
   apiLoaded: Observable<boolean>;
+  showError: boolean = false;
+  errorMessage: string = '';
 
   constructor(private _gs: GlobalProviderService, private httpClient: HttpClient) {
     this.apiLoaded = httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${environment.maps_api_key}`, 'callback')
@@ -68,6 +70,16 @@ export class MapComponentComponent implements OnInit {
 
   buildMap(){
     if(!this.origen || !this.destino) return;
+
+	const mismoDestino = this.destino?.id === this.origen?.id;
+
+	if(mismoDestino){
+		this.showError = true;
+		this.errorMessage = 'El origen y destino deben ser distintos';
+	}else{
+		this.showError = false;
+		this.errorMessage = '';
+	}
 
     const mainMapContainer = document.querySelector("mainMapContainer");
     if(mainMapContainer)

@@ -1,3 +1,8 @@
 <div id="mainMapContainer" *ngIf="apiLoaded | async">
   <div id="mainMap"></div>
 </div>
+<div *ngIf="showError" class="error-message">
+	<span class="text-white font-bold text-xl">
+		{{errorMessage}}
+	</span>
+  </div>

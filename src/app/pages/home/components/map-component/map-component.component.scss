@@ -1,3 +1,7 @@
 #mainMap{
 	@apply w-full bg-gray-200 h-[500px] rounded-md
 }
+
+.error-message{
+	@apply h-[600px] w-full bg-red-500 opacity-80 p-8 rounded-md flex flex-col justify-center items-center top-0 left-0 absolute
+}

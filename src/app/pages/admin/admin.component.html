@@ -1,0 +1,12 @@
+<h2 class="text-3xl font-bold">Administración</h2>
+<hr class="my-4">
+
+<div class="admin-buttons-container">
+	<a [routerLinkActive]="['active']" [routerLink]="['localidades']">Localidades</a>
+	<a [routerLinkActive]="['active']" [routerLink]="['viajes']">Viajes</a>
+	<a [routerLinkActive]="['active']" [routerLink]="['pasajes']">Pasajes</a>
+</div>
+
+<div class="admin-buttons-container">
+	<router-outlet></router-outlet>
+</div>
