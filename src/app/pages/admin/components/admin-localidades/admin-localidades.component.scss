@@ -1,0 +1,20 @@
+.fila{
+	@apply w-full bg-gray-100;
+	td{
+		@apply p-3;
+	}
+	&:nth-child(odd){
+		@apply bg-gray-200;
+	}
+}
+
+table{
+	@apply w-full;
+	thead{
+		@apply bg-black text-white text-left;
+
+		th{
+			@apply p-3;
+		}
+	}
+}

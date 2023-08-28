@@ -1,1 +1,16 @@
-<p>admin-localidades works!</p>
+<table>
+	<thead>
+		<th>ID</th>
+		<th>Localidad</th>
+		<th>Lat</th>
+		<th>Long</th>
+	</thead>
+	<tbody>
+		<tr class="fila" *ngFor="let item of localidades | async">
+			<td>{{item._id}}</td>
+			<td>{{item.nombre}}</td>
+			<td>{{item.latitud}}</td>
+			<td>{{item.longitud}}</td>
+		</tr>
+	</tbody>
+</table>
