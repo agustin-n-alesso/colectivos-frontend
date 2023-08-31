@@ -7,6 +7,9 @@ import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import ContainerComponent from './components/shared/container/container.component';
 import { CommonModule } from '@angular/common';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

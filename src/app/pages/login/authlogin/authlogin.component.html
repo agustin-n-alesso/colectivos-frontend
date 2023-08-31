@@ -1,1 +1,17 @@
-<p>authlogin works!</p>
+<div class="w-[400px] lg:w-[700px] p-10 rounded-md bg-gray-100 shadow-2xl shadow-slate-400">
+	<form #f="ngForm" (submit)="enviarFormulario(f)" class="col-down">
+		<label class="col-down">
+			Usuario:
+			<input autocomplete="username" required name="usuario" [(ngModel)]="datosUsuario.usuario" type="text" placeholder="alguien@ejemplo.com">
+		</label>
+		<label class="col-down">
+			Contraseña:
+			<input autocomplete="current-password" required name="password" [(ngModel)]="datosUsuario.password" type="password" placeholder="Su contraseña">
+		</label>
+		<button>Iniciar Sesión</button>
+		<span class="text-center">
+			¿No tenés cuenta todavía?
+			<a class="text-blue-500" [routerLink]="['/auth/register']">Registrarse</a>
+		</span>
+	</form>
+</div>
