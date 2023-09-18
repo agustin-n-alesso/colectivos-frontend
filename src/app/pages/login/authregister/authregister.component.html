@@ -1,1 +1,78 @@
-<p>authregister works!</p>
+<div class="w-[400px] lg:w-[700px] p-10 rounded-md bg-gray-100 shadow-2xl shadow-slate-400">
+	<form #f="ngForm" (submit)="enviarFormulario(f)" class="col-down">
+		<label class="col-down">
+			Nombre:
+			<input 
+				autocomplete="name" 
+				required 
+				name="nombre" 
+				[(ngModel)]="datosUsuario.nombre" 
+				type="text"
+				placeholder="Juan"
+			>
+		</label>
+		<label class="col-down">
+			Apellido:
+			<input 
+				autocomplete="lastname" 
+				required 
+				name="apellido" 
+				[(ngModel)]="datosUsuario.apellido" 
+				type="text" 
+				placeholder="Perez"
+			>
+		</label>
+		<label class="col-down">
+			Correo Electrónico:
+			<input 
+				autocomplete="username" 
+				required 
+				name="email" 
+				[(ngModel)]="datosUsuario.email" 
+				type="email" 
+				placeholder="alguien@ejemplo.com"
+			>
+		</label>
+		<label class="col-down">
+			Repetir Correo Electrónico:
+			<input 
+				autocomplete="username" 
+				required 
+				name="repetirEmail" 
+				[(ngModel)]="datosUsuario.repetirEmail" 
+				type="email" 
+				placeholder="alguien@ejemplo.com"
+			>
+		</label>
+		<label class="col-down">
+			Contraseña:
+			<input 
+				autocomplete="current-password" 
+				required 
+				name="password" 
+				[(ngModel)]="datosUsuario.password" 
+				type="password" 
+				placeholder="Su contraseña"
+			>
+		</label>
+		<label class="col-down">
+			Repetir Contraseña:
+			<input 
+				autocomplete="current-password" 
+				required 
+				name="repetirPassword" 
+				[(ngModel)]="datosUsuario.repetirPassword" 
+				type="password" 
+				placeholder="Repetir contraseña"
+			>
+		</label>
+		<span *ngIf="showError" class="col-down bg-red-500 p-4 rounded-md text-white">
+			{{errorMessage}}
+		</span>
+		<button>Registrarse</button>
+		<span class="text-center">
+			¿Ya tenes cuenta?
+			<a class="text-blue-500" [routerLink]="['/auth/login']">Inicia sesión</a>
+		</span>
+	</form>
+</div>

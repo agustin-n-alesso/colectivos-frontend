@@ -1,0 +1,16 @@
+.col-down{
+	@apply flex flex-col gap-5;
+
+	label{
+		@apply text-gray-500 text-sm;
+	}
+
+	input{
+		@apply -mt-4 p-3 outline-none rounded-md shadow-sm;
+	}
+
+	button{
+		@apply text-white bg-blue-600 p-3 rounded-md;
+	}
+
+}

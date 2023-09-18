@@ -27,13 +27,9 @@ export class AuthloginComponent {
 
 		this._auth.iniciarSesion(this.datosUsuario.usuario,this.datosUsuario.password)
 			.then(response => {
-				console.log(response);
-
 				response.user.getIdTokenResult().then(response => {
-					this.cookieService.set('accessToken',response.token)
+					this.cookieService.set('_at',response.token)
 				});
-
-
 			})
 			.catch(error => {
 				console.log(error);
