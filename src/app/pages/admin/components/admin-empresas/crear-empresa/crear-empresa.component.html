@@ -1,0 +1,39 @@
+<div class="flex flex-col items-center justify-center">
+	<form #f="ngForm" (submit)="enviarFormulario(f)" class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+		<div class="mb-4">
+			<label class="block text-gray-700 font-bold mb-2" for="nombre">
+				Nombre
+			</label>
+			<input required [(ngModel)]="empresa.nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Nombre de la empresa">
+		</div>
+		<div class="mb-4">
+			<label class="block text-gray-700 font-bold mb-2" for="direccion">
+				Descripción
+			</label>
+			<input required [(ngModel)]="empresa.descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direccion" type="text" placeholder="Descripción de la empresa">
+		</div>
+		<div class="mb-4">
+			<label class="block text-gray-700 font-bold mb-2" for="sitioWeb">
+				Sitio Web
+			</label>
+			<input required [(ngModel)]="empresa.website_url" name="website_url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sitioWeb" type="text" placeholder="Sitio web de la empresa">
+		</div>
+		<div class="mb-4">
+			<label class="block text-gray-700 font-bold mb-2" for="activa">
+				Activa
+			</label>
+			<input [(ngModel)]="empresa.activa" name="activa" class="mr-2 leading-tight" type="checkbox" id="activa">
+			<span class="text-sm">
+				¿Está activa la empresa?
+			</span>
+		</div>
+		<div class="flex items-center justify-between">
+			<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+				Guardar
+			</button>
+			<button (click)="sendCancelOrder()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+				Cancelar
+			</button>
+		</div>
+	</form>
+</div>

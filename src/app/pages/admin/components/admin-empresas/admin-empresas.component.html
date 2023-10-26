@@ -1,0 +1,9 @@
+<section class="w-full flex flex-col items-end bg-gray-200 p-4">
+	<button *ngIf="!isEditingOrCreating" (click)="toggleIsEditingOrCreating()" class="p-4 my-4 rounded-md bg-blue-500 text-white">Crear Empresa</button>
+	<div *ngIf="!isEditingOrCreating" class="bg-gray-100 w-full p-2 rounded-sm">
+		<app-listar-empresa *ngIf="empresas" [empresas]="empresas"></app-listar-empresa>
+	</div>
+	<div *ngIf="isEditingOrCreating" class="w-full p-2 rounded-sm">
+		<app-crear-empresa (onSuccess)="pushResToArray($event)" (onCancel)="toggleIsEditingOrCreating()"></app-crear-empresa>
+	</div>
+</section>

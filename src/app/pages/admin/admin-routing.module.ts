@@ -5,6 +5,7 @@ import { AdminLocalidadesComponent } from './components/admin-localidades/admin-
 import { AdminViajesComponent } from './components/admin-viajes/admin-viajes.component';
 import { AdminPasajesComponent } from './components/admin-pasajes/admin-pasajes.component';
 import { AdminGuard } from './guards/admin.guard';
+import { AdminEmpresasComponent } from './components/admin-empresas/admin-empresas.component';
 
 const routes: Routes = [
 	{
@@ -16,6 +17,7 @@ const routes: Routes = [
 			{ path: 'localidades', component: AdminLocalidadesComponent  },
 			{ path: 'viajes', component: AdminViajesComponent  },
 			{ path: 'pasajes', component: AdminPasajesComponent  },
+			{ path: 'empresas', component: AdminEmpresasComponent  },
 			{ path: '**', pathMatch: 'full', redirectTo: '' }
 		]
 	},

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-authregister',
@@ -9,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AuthregisterComponent {
 
-	constructor(private _auth: AuthService){}
+	constructor(private _auth: AuthService, private router: Router){}
 	
 	datosUsuario = {
 		nombre: '',
@@ -25,25 +27,30 @@ export class AuthregisterComponent {
 	
 	enviarFormulario(formulario: NgForm){
 		
+		Swal.fire({
+			title: 'Registrando...',
+			showConfirmButton: false,
+			allowOutsideClick: false
+		});
+		
 		if(formulario.invalid) return;
 		
 		const emailMatch = this.datosUsuario.email === this.datosUsuario.repetirEmail;
 		const passMatch = this.datosUsuario.password === this.datosUsuario.repetirPassword;
 		
 		if(!emailMatch){
-			this.showError = true;
-			this.errorMessage = 'Los correos no coinciden';
+			Swal.fire('No pudo registrarse', 'Los emails no coinciden', 'error');
 			return;
 		}
 		
 		if(!passMatch){
-			this.showError = true;
-			this.errorMessage = 'Las contraseñas no coinciden';
+			Swal.fire('No pudo registrarse', 'Las contraseñas no coinciden', 'error');
 			return;
 		}
 		
 		this._auth.crearUsuario(this.datosUsuario).subscribe(res => {
-			console.log(res);
+			Swal.fire('Registrado', 'Usuario registrado correctamente', 'success');
+			this.router.navigate(['/auth/login']);
 		})
 		
 	}

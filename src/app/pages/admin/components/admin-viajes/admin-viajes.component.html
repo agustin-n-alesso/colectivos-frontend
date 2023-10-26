@@ -1,1 +1,9 @@
-<p>admin-viajes works!</p>
+<section class="w-full flex flex-col items-end bg-gray-200 p-4">
+	<button *ngIf="!isEditingOrCreating" (click)="toggleIsEditingOrCreating()" class="p-4 my-4 rounded-md bg-blue-500 text-white">Crear Viaje</button>
+	<div *ngIf="!isEditingOrCreating" class="bg-gray-100 w-full p-2 rounded-sm">
+		<app-listar-viaje [viajes]="viajes"></app-listar-viaje>
+	</div>
+	<div *ngIf="isEditingOrCreating" class="w-full p-2 rounded-sm">
+		<app-crear-viaje (onCancel)="toggleIsEditingOrCreating()" [empresas]="empresas" [destinos]="destinos"></app-crear-viaje>
+	</div>
+</section>
