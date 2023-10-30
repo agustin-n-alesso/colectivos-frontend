@@ -4,6 +4,6 @@
 		<app-listar-viaje [viajes]="viajes"></app-listar-viaje>
 	</div>
 	<div *ngIf="isEditingOrCreating" class="w-full p-2 rounded-sm">
-		<app-crear-viaje (onCancel)="toggleIsEditingOrCreating()" [empresas]="empresas" [destinos]="destinos"></app-crear-viaje>
+		<app-crear-viaje (onCancel)="toggleIsEditingOrCreating()" (onSuccess)="onSuccessHandler($event)" [empresas]="empresas" [destinos]="destinos"></app-crear-viaje>
 	</div>
 </section>
